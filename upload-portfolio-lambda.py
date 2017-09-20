@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     }
 
     try:
-        job = event.get('codePipeline.job')
+        job = event.get('CodePipeline.job')
 
         if job:
             for artifact in job['data']['inputArtifacts']:
