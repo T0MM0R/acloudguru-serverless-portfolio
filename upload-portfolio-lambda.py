@@ -10,8 +10,8 @@ def lambda_handler(event, context):
     topic = sns.Topic('arn:aws:sns:us-east-1:502003314174:deployPortfolioTopic')
 
     location = {
-        "bucketName": "serverlessbuild.thomaswilson.me"
-        "objectKey": "serverlessbuild.zip"
+        "bucketName": 'serverlessbuild.thomaswilson.me',
+        "objectKey": 'serverlessbuild.zip'
     }
 
     try:
@@ -22,7 +22,7 @@ def lambda_handler(event, context):
                 if artifact['name'] == "MyAppBuild":
                     location = artifact['location']['s3Location']
 
-
+        print "Building portfolio from " + str(location)
 
         s3 = boto3.resource('s3')
         portfolio_bucket = s3.Bucket('serverless.thomaswilson.me')
@@ -38,7 +38,12 @@ def lambda_handler(event, context):
                 portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
 
         topic.publish(Subject="portfolio deployed", Message="The portfolio was deployed to serverless.thomaswilsonme")
+        if job:
+            codepipeline = boto3.client('codepipeline')
+            codepipeline.put_job_success_result(jobId=job['id'])
 
     except:
         topic.publish(Subject="portfolio not deployed", Message="The portfolio was not deployed to serverless.thomaswilsonme")
         raise
+
+    return 'Hello from Lambda'
