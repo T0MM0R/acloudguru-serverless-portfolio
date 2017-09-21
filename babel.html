@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Babel Demo</title>
+
+  </head>
+  <body>
+    <main>
+      <label for="name">Name: <input id="name" type="text" /></label>
+      <button id="submit-info">Submit!</button>
+      <div id="content">
+      </div>
+    </main>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js">
+
+    </script>
+
+    <script type="text/babel" data-presets="latest">
+      const getMessage = (name) => `Welcome to Javascript, ${name}!`;
+      const button = document.getElementById('submit-info');
+      button.addEventListener('click', (evt) => {
+        let name = document.getElementById('name').value;
+        document.getElementById('content').textContent = getMessage(name);
+      });
+
+    </script>
+  </body>
+</html>
