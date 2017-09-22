@@ -31,13 +31,40 @@
     <script type="text/babel" data-presets="react">
 
     class NameInput extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          message: {
+            type: undefined,
+            body: undefined
+          }
+        }
+
+        this.buttonClicked = this.buttonClicked.bind(this);
+
+      }
+      buttonClicked(evt) {
+
+        let name = this.refs.nameInput.value;
+
+        this.setState({
+          message: {
+            type: name ? "success" : "error",
+            body: name ? "Welcome to react, " + name : "Please enter a name."
+          }
+        })
+
+      }
       render() {
+
+        let msg = this.state.message;
+
         return (
           <div>
-            <label for="name">Name: <input id="name" type="text" /></label>
-            <button id="submit-info">Submit!</button>
+            <label for="name">Name: <input ref="nameInput" type="text" /></label>
+            <button onClick={this.buttonClicked} id="submit-info">Submit!</button>
 
-            <MessageBox type="" message="" />
+            <MessageBox type={msg.type} message={msg.body} />
           </div>
         )
       }
