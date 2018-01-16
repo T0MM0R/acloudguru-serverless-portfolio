@@ -6,24 +6,24 @@ const myWork = [
   {
     'title': "test1",
     'image': {
-      'desc': "this is test 1",
+      'desc': "this is code",
       'src': "images/example1.png",
       'comment': "blah blah"
     }
   },
   {
-    'title': "test1",
+    'title': "test2",
     'image': {
-      'desc': "this",
-      'src': "images/example1.png",
+      'desc': "Some colors",
+      'src': "images/example2.png",
       'comment': "blah blah"
     }
   },
   {
-    'title': "test1",
+    'title': "test3",
     'image': {
-      'desc': "this",
-      'src': "images/example1.png",
+      'desc': "A Cat",
+      'src': "images/example3.png",
       'comment': "blah blah"
     }
   }

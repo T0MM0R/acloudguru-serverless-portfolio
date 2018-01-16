@@ -4,7 +4,7 @@
   "description": "Class learning AWS Serverless technologies.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "webpack": "webpack",
     "webpack-watch": "webpack --watch"
   },
@@ -19,13 +19,18 @@
   },
   "homepage": "https://github.com/T0MM0R/acloudguru-serverless-portfolio#readme",
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-core": "^6.24.1",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "webpack": "^3.6.0"
+    "enzyme": "^2.8.2",
+    "jest": "^20.0.4",
+    "react-test-renderer": "^15.5.4",
+    "webpack": "^3.10.0"
   }
 }
